@@ -20,3 +20,9 @@ O banco de dados escolhido para armazenar as informações da aplicação é o P
 A autenticação de usuários será feita através de tokens JWT, garantindo assim a segurança das informações e acesso somente aos usuários autorizados. Além disso, serão implementados middlewares para validar as requisições e garantir que somente as ações permitidas sejam executadas.
 
 Em resumo, este backend da aplicação pizzaria é uma solução completa, segura e performática para gerenciar os pedidos e criação de pizzas da sua pizzaria.
+
+## Como rodar o backend
+
+* yarn 
+
+* yarn dev
