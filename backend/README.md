@@ -21,8 +21,26 @@ A autenticação de usuários será feita através de tokens JWT, garantindo ass
 
 Em resumo, este backend da aplicação pizzaria é uma solução completa, segura e performática para gerenciar os pedidos e criação de pizzas da sua pizzaria.
 
+
+
 ## Como rodar o backend
 
-* yarn 
+``` yarn ``` 
 
-* yarn dev
+``` yarn dev ```
+
+## Como criar uma migration
+
+
+``` yarn prisma migrate dev ```
+
+
+## Ferramentas úteis
+
+1. Beekeeper Studio
+2. Postbird
+3. PostgreSQL
+
+## Relacionamentos
+
+![Relacionamento](../img/relacionamento.png)
