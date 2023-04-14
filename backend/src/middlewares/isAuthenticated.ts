@@ -17,13 +17,10 @@ export function isAuthenticated(
   }
 
   const [, token] = authToken.split(" ");
-
   try {
     const { sub } = verify(token, process.env.JWT_SECRET) as Payload;
-
     req.user_id = sub;
 
-    console.log(sub);
     return next();
   } catch (err) {
     return res.json(401).end();
