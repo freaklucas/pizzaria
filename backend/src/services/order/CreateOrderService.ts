@@ -15,7 +15,6 @@ class CreateOrderService {
       select: {
         id: true,
         name: true,
-        
         table: true,
         status: true,
         draft: true,

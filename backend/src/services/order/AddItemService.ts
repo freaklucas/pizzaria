@@ -14,6 +14,12 @@ class AddItemService {
         product_id: product_id,
         amount: amount,
       },
+      select: {
+        id: true,
+        amount: true,
+        order_id: true,
+        product_id: true,
+      },
     });
     return order;
   }
