@@ -13,6 +13,13 @@ class FishOrderService {
       data: {
         status: true,
       },
+      select: {
+        id: true,
+        table: true,
+        status: true,
+        draft: true,
+        name: true,
+      },
     });
 
     return order;
