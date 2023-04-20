@@ -1,3 +1,8 @@
-function MyApp({Component, pageProps}) {
-  return 
+import '../../styles/Home.module.scss';
+import { AppProps } from 'next/app';
+
+function MyApp({Component, pageProps}: AppProps) {
+  return <Component {...pageProps} />
 }
+
+export default MyApp;
