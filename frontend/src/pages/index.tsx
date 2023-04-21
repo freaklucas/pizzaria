@@ -16,21 +16,23 @@ export default function Home() {
         <div className={styles.login}>
           <form>
            <Input 
-            placeholder="Insira seu Email" 
-            type="text" 
-          />
-          <Input 
-            placeholder="Insira sua Senha" 
-            type="password" 
-          />
-          <Button
-            type="submit"
-            loading={true}
-          > 
-            Acessar
-          </Button>
-  
+              placeholder="Insira seu Email" 
+              type="text" 
+            />
+            <Input 
+              placeholder="Insira sua Senha" 
+              type="password" 
+            />
+            <Button
+              type="submit"
+              loading={true}
+            > 
+              Acessar
+            </Button> 
           </form>
+          <a className={styles.text}>
+            Não possui uma conta? Cadastre-se
+          </a>
         </div>
       </div>
     </>
