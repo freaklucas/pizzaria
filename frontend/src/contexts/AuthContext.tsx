@@ -1,9 +1,11 @@
 import { createContext, ReactNode, useState } from "react";
 
+type NewType = (credentials: SignInProps) => Promise<void>;
+
 type AuthContextData = {
   user: UserProps;
   isAuthenticated: boolean;
-  signIn: (credencials: SignInProps) => Promise<void>;
+  signIn: NewType;
 };
 
 type UserProps = {
@@ -27,8 +29,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>();
   const isAuthenticated = !!user;
 
-  async function signIn() {
-    alert("Clicou no signIn!");
+  async function signIn({email, password}: SignInProps) {
+    console.log(email);
+    console.log(password)
   }
 
   return (
