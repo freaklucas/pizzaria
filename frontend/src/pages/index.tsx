@@ -3,6 +3,7 @@ import pizza from "../../public/pizza.png";
 import styles from "../../styles/home.module.scss";
 import Image from "next/image";
 import { Input } from "../components/ui/Input/index";
+import { Button } from "../components/ui/Button/index";
 
 export default function Home() {
   return (
@@ -14,8 +15,21 @@ export default function Home() {
         <Image src={pizza} alt="logo pizza" width={520} height={300} />
         <div className={styles.login}>
           <form>
-            <Input placeholder="Insira seu Email" type="text" />
-            <Input placeholder="Insira sua Senha" type="password" />
+           <Input 
+            placeholder="Insira seu Email" 
+            type="text" 
+          />
+          <Input 
+            placeholder="Insira sua Senha" 
+            type="password" 
+          />
+          <Button
+            type="submit"
+            loading={true}
+          > 
+            Acessar
+          </Button>
+  
           </form>
         </div>
       </div>
