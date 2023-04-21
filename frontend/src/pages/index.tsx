@@ -1,8 +1,8 @@
 import Head from "next/head";
-import pizza from "../../public/pizza.jpg";
+import pizza from "../../public/pizza.png";
 import styles from "../../styles/home.module.scss";
 import Image from "next/image";
-import { Input } from '../components/ui/Input/index';
+import { Input } from "../components/ui/Input/index";
 
 export default function Home() {
   return (
@@ -11,15 +11,11 @@ export default function Home() {
         <title>Pizzaria - Faça seu login</title>
       </Head>
       <div className={styles.containerCenter}>
-        <Image
-          src={pizza}
-          alt="logo pizza"
-          width={520}
-          height={300}
-        />
+        <Image src={pizza} alt="logo pizza" width={520} height={300} />
         <div className={styles.login}>
           <form>
-            <Input />
+            <Input placeholder="Insira seu Email" type="text" />
+            <Input placeholder="Insira sua Senha" type="password" />
           </form>
         </div>
       </div>
