@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState } from "react";
 import { destroyCookie, setCookie } from "nookies";
 import Router from "next/router";
 import { api } from "../services/apiClient";
+import { toast } from "react-toastify";
 
 type NewType = (credentials: SignInProps) => Promise<void>;
 
@@ -67,8 +68,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       api.defaults.headers["Authorization"] = `Bearer ${token}`;
 
+      toast.success("Logado com sucesso!");
       Router.push("/dashboard");
     } catch (error) {
+      toast.error("Erro ao acessar!");
       console.log("Erro ao acessar ", error);
     }
   }
@@ -81,12 +84,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
         password
       });
 
-       alert("Cadastrado com sucesso!");
+      toast.success("Cadastrado com sucesso!");
+
 
        Router.push("/");
     }
     catch(error) {
+      toast.error("Erro ao cadastrar!");
       console.log("Erro ao cadastrar ", error);
+
     }
   }
 
