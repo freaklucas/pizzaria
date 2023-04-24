@@ -63,12 +63,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
       Router.push("/dashboard");
     } catch (error) {
       console.log("Erro ao acessar ", error);
-      console.error("Message: ", error.message);
-      console.error("Stack:", error.stack);
-
-
-
-
     }
   }
 
