@@ -44,6 +44,7 @@ export default function Home() {
       <div className={styles.containerCenter}>
         <Image src={pizza} alt="logo pizza" width={520} height={300} />
         <div className={styles.login}>
+          <h1>Login</h1>
           <form onSubmit={handleLogin}>
             <Input
               value={email}
