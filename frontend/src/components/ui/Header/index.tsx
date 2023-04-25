@@ -12,7 +12,7 @@ export function Header() {
         <Link href="/dashboard">
           <a className={styles.logo}>🍕 Pizzaria</a>
         </Link>
-        <h1>Olá {user?.name}</h1>
+        <h4>Olá {user?.name}</h4>
         <nav className={styles.manuNav}>
           <Link href="/category">
             <a>Categoria</a>
