@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useState } from "react";
-import { destroyCookie, setCookie } from "nookies";
+import { createContext, ReactNode, useState, useEffect } from "react";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
 import Router from "next/router";
 import { api } from "../services/apiClient";
 import { toast } from "react-toastify";
@@ -29,7 +29,7 @@ type SignUpProps = {
   name: string;
   email: string;
   password: string;
-}
+};
 
 type AuthProviderProps = {
   children: ReactNode;
@@ -48,7 +48,23 @@ export function signOut() {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>();
   const isAuthenticated = !!user;
+  useEffect(() => {
+    const {"@nextauth.token": token} = parseCookies();
+    if(token) {
+      api.get("/me").then(response => {
+        const { id, name, email } = response.data;
 
+        setUser({
+          id,
+          name,
+          email
+        });
+      })
+      .catch(() => {
+        signOut();
+      })
+    }
+  },[])
   async function signIn({ email, password }: SignInProps) {
     try {
       const response = await api.post("/session", {
@@ -76,28 +92,27 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
-  async function signUp({name, email, password}: SignUpProps) {
+  async function signUp({ name, email, password }: SignUpProps) {
     try {
       const response = await api.post("/users", {
         name,
         email,
-        password
+        password,
       });
 
       toast.success("Cadastrado com sucesso!");
 
-
-       Router.push("/");
-    }
-    catch(error) {
+      Router.push("/");
+    } catch (error) {
       toast.error("Erro ao cadastrar!");
       console.log("Erro ao cadastrar ", error);
-
     }
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut, signUp }}>
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, signIn, signOut, signUp }}
+    >
       {children}
     </AuthContext.Provider>
   );
